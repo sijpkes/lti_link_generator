@@ -11,3 +11,11 @@ h1 {
 label {
   padding: 0.2em !important;
 }
+input#key, input#secret {
+  max-width: 6em;
+  min-width: 4em;
+}
+#custom_params {
+  min-height: 11em;
+  max-height: 15em;
+}
