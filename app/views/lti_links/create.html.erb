@@ -1,0 +1,32 @@
+<%= csrf_meta_tags %>
+<div class=container>
+    <h1>You're Ready to Go!</h1>
+    <p><em>Copy these values into the equivalent fields for your Blackboard LTI Link</em></p>
+<div class=row>
+<div class=span2>
+<div class=span8 id=launch_info>
+<form>
+  <fieldset class=form-group>
+   <label for=link_url>Link Url</label>
+   <input type=text class=form-control id=link_url name=link_url value='https://bold-space.newcastle.edu.au/lti/index.php/d5090ba7cb1adc980a5096ddf60d54c3' readonly="1">
+
+   <label for=key>Key</label>
+   <input type=text class=form-control id=key name=key value='&7%g1e' readonly="1">
+
+   <label for=secret>Secret</label>
+   <input type=text class=form-control id=secret name=secret value=')8yhIr' readonly="1">
+
+   <label for=custom_params>Custom Parameters</label>
+   <textarea class=form-control id=custom_params readonly="1">
+vle_user_role=@X@user.role@X@
+vle_coursename=@X@course.course_name@X@
+vle_pk_string=@X@course.pk_string@X@
+vle_username=@X@user.id@X@
+   </textarea>
+   <!-- <a href="#" id=edit_settings style="float:right">Edit Settings</a> -->
+ </fieldset>
+</form>
+</div>
+</div>
+</div>
+</div>

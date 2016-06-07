@@ -1,59 +1,40 @@
-<!DOCTYPE html>
-<html>
 <div class=container>
 <div class=row>
 <div class=span2>
   <h1>LTI Link Generator</h1>
 
-<form>
+<form action='/lti_links' method='post'>
   <fieldset class=form-group>
+     <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
     <label for=tool>Choose the tool you would like to generate a link for</label>
     <select class=form-control id=tool>
       <option value="0">========== None Selected ===========</option>
       <option value="1" title="Provide a Blackboard link to evaluate student contributions to group work, a simple alternative to SPARC.">Group Work Peer Evaluation</option>
       <option value="2" title="Deliver problems and solutions securely to students via a Blackboard link">Secure Question/Answer Delivery</option>
     </select>
+  </div>
   </fieldset>
 
 </span>
  </div>
- <div class=col-md-4 id=launch_info style='display: none'>
-   <p><em>Copy these values into the equivalent fields for your Blackboard LTI Link</em></p>
 
-   <fieldset class=form-group>
-    <label for=link_url>Link Url</label>
-    <input type=text class=form-control id=link_url name=link_url value='https://bold-space.newcastle.edu.au/lti/index.php/d5090ba7cb1adc980a5096ddf60d54c3' readonly="1">
-
-    <label for=key>Key</label>
-    <input type=text class=form-control id=key name=key value='&7%g1e' readonly="1">
-
-    <label for=secret>Secret</label>
-    <input type=text class=form-control id=secret name=secret value=')8yhIr' readonly="1">
-
-    <label for=custom_params>Custom Parameters</label>
-    <textarea class=form-control id=custom_params readonly="1">
-vle_user_role=@X@user.role@X@
-vle_coursename=@X@course.course_name@X@
-vle_pk_string=@X@course.pk_string@X@
-vle_username=@X@user.id@X@
-    </textarea>
-    <a href="#" id=edit_settings style="float:right">Edit Settings</a>
-  </fieldset>
-</form>
- </div>
- <div class=col-md-4 id=settings style='display: none'>
-   <form>
+ <div class=col-md-6 id=settings style='display: none'>
 
 <label for=show_grade_column1>Show grades column to students?
     <input class=form-control type="radio" name="show_grade_column" id=show_grade_column1 value="yes" checked="checked">Yes:</label>
-    <label for=show_grade_column2> 
+    <label for=show_grade_column2>
     <input class=form-control type="radio" name="show_grade_column" id=show_grade_column2 value="no">No:</label>
     <label for=show_comments1>Show comments to students? Yes: <input type="radio" name="show_comments" id=show_comments1 value="yes" checked="checked"> </label> <label for=show_comments>No: <input type="radio" name="show_comments" value="no"></label>
                the logged in student, all other students are greyed out until the student has
-               self assessed</em></p><p><br>Include self in the mean score calculation from the group? Yes: <input type="radio" name="include_self_in_mean_score" value="yes"> No: <input type="radio" name="include_self_in_mean_score" value="no" checked="checked"><br></p><p><em>This option includes the student's self assessment score in the mean calculation from the group score.</em></p><p><br><label for="total_score">Total maximum score for assessment</label><input type="text" name="total_score" value="40" id="total_score" maxlength="4" size="30" style="width:12%" disabled=""><input type="hidden" name="total_score" value="40"><em id="scoreOverride">(Overriden by rubric total score)</em><br><input type="submit" name="settings" value="Save Settings"></p></form>
+               self assessed</em></p><p><br>Include self in the mean score calculation from the group? Yes:
+
+          <input type="radio" name="include_self_in_mean_score" value="yes"> No: <input type="radio" name="include_self_in_mean_score" value="no" checked="checked"><br></p>
+          <p><em>This option includes the student's self assessment score in the mean calculation from the group score.</em></p><p><br><label for="total_score">Total maximum score for assessment</label><input type="text" name="total_score" value="40" id="total_score" maxlength="4" size="30" style="width:12%" disabled="">
+          <input type="hidden" name="total_score" value="40"><em id="scoreOverride">(Overriden by rubric total score)</em><br></p>
+          <a href="#" id=edit_template style="float:right">Edit Template</a>
  </div>
- <div class=col-md-4 id=template style='display: none'>
-   <form>
+ <div class=col-md-6 id=template style='display: none'>
+
   <fieldset class=form-group>
   <label for=group_sub_heading>Group Sub Heading</label><br>
   <input type=text id=group_sub_heading name=group_sub_heading value="Your Evaluation of Other Group Members">
@@ -85,11 +66,17 @@ contribution will receive 27/30 as the final assessment mark (group mark plus 5 
 a generally inadequate overall contribution would receive 17/30 for the same group assignment (group mark minus 5 marks).</p>
 
    </textarea>
+
  </fieldset>
  </div>
-
+<div class=row>
+  <div class=span8>
+    <input class="form-control btn-warning" type=submit value=Generate name=generate>
+  </div>
 </div>
+</div>
+
 </form>
-</html>
+
 <!-- <h1>Home#index</h1>
 <p>Find me in app/views/home/index.html.erb</p> -->
