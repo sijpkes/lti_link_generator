@@ -4,7 +4,7 @@ This is a very brief run-down on how to get started on developing for this proje
 If you can't get going, {log it as an issue}[https://github.com/sijpkes/lti_link_generator/issues/new].
 
 * check this repo out from git:
-= Cloning the Git Repo
+== Cloning the Git Repo
   $ git clone https://github.com/sijpkes/lti_link_generator.git
 
 === Ruby version
@@ -13,13 +13,13 @@ ruby 2.3.1p112 (2016-04-26 revision 54768)
 {Install Ruby for your System}[https://www.ruby-lang.org/en/documentation/installation/]
 
 === System dependencies
-  * Rails with mySQL support
-  * bootstrap-sass gem
-  * [TODO] tinyMCE gem for WYSIWYG html editing
+* Rails with mySQL support
+* bootstrap-sass gem
+* [TODO] tinyMCE gem for WYSIWYG html editing
 
-= For development:
+== For development:
 
-= Development Database Tables
+=== Development Database Tables
 Create the following tables in a fresh mySQL database:
 
 This table is used for storing Rubrics and is intended as a generic course resource store.
@@ -75,7 +75,7 @@ where certain plug-ins are turned on and off for instructors.
       PRIMARY KEY (`course_key`,`institution_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-= END README
+=== END README
 
 Placeholder information only...
 
