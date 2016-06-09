@@ -10,7 +10,7 @@ If you can't get going, {log it as an issue}[https://github.com/sijpkes/lti_link
 * Ruby version
 ruby 2.3.1p112 (2016-04-26 revision 54768)
 
-{Install Ruby for your System}(https://www.ruby-lang.org/en/documentation/installation/)
+{Install Ruby for your System}[https://www.ruby-lang.org/en/documentation/installation/]
 
 * System dependencies
   * Rails with mySQL support
