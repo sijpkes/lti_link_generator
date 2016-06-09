@@ -5,7 +5,9 @@ If you can't get going, {log it as an issue}[https://github.com/sijpkes/lti_link
 
 * check this repo out from git:
 
-  $git clone https://github.com/sijpkes/lti_link_generator.git
+=begin shell
+  $ git clone https://github.com/sijpkes/lti_link_generator.git
+=end
 
 * Ruby version
 ruby 2.3.1p112 (2016-04-26 revision 54768)
@@ -18,6 +20,23 @@ ruby 2.3.1p112 (2016-04-26 revision 54768)
 * Configuration
 
 * Database creation
+
+For development:
+
+Create the following tables in a fresh mySQL database:
+
+=begin sql
+CREATE TABLE IF NOT EXISTS `exp_lti_course_link_resources` (
+  `id` mediumint(5) NOT NULL AUTO_INCREMENT,
+  `course_id` mediumint(5) NOT NULL,
+  `resource_link_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `rubric_id` varchar(18) COLLATE utf8_unicode_ci NOT NULL,
+  `peer_assessment_show_column_scores` tinyint(1) unsigned DEFAULT '1',
+  PRIMARY KEY (`id`),
+  KEY `resource_link_id` (`resource_link_id`),
+  KEY `resource_link_id_2` (`resource_link_id`(10))
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT;
+=end
 
 * Database initialization
 
