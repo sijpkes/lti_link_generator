@@ -1,24 +1,21 @@
-=begin
 == README
 
 This is a very brief run-down on how to get started on developing for this project.
 If you can't get going, {log it as an issue}[https://github.com/sijpkes/lti_link_generator/issues/new].
 
 * check this repo out from git:
-= Cloning Git Repo
+= Cloning the Git Repo
   $ git clone https://github.com/sijpkes/lti_link_generator.git
 
 * Ruby version
 ruby 2.3.1p112 (2016-04-26 revision 54768)
 
+{Install Ruby for your System}(https://www.ruby-lang.org/en/documentation/installation/)
+
 * System dependencies
   * Rails with mySQL support
-  * bootstrap-sass
-  * [TODO] add tinyMCE gem for WYSIWYG html editing
-
-* Configuration
-
-* Database creation
+  * bootstrap-sass gem
+  * [TODO] tinyMCE gem for WYSIWYG html editing
 
 = For development:
 
@@ -77,6 +74,14 @@ where certain plug-ins are turned on and off for instructors.
       `include_self_in_mean_score` tinyint(1) unsigned DEFAULT '0',
       PRIMARY KEY (`course_key`,`institution_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+= END README
+
+Placeholder information here...
+
+* Configuration
+
+* Database creation
 
 * Database initialization
 
