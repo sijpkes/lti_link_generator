@@ -5,7 +5,7 @@ This is a very brief run-down on how to get started on developing for this proje
 If you can't get going, {log it as an issue}[https://github.com/sijpkes/lti_link_generator/issues/new].
 
 * check this repo out from git:
-
+=
   (({$ git clone https://github.com/sijpkes/lti_link_generator.git}))
 
 * Ruby version
