@@ -22,9 +22,10 @@ ruby 2.3.1p112 (2016-04-26 revision 54768)
 
 For development:
 
-Create the following tables in a fresh mySQL database:
+
 
 = Development Database Tables
+Create the following tables in a fresh mySQL database:
 
   CREATE TABLE IF NOT EXISTS `exp_lti_course_link_resources` (
     `id` mediumint(5) NOT NULL AUTO_INCREMENT,
