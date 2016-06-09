@@ -21,6 +21,7 @@ ruby 2.3.1p112 (2016-04-26 revision 54768)
 
 === Development Database Tables
 Create the following tables in a fresh mySQL database:
+These tables are used by ExpressionEngine for storing data in relation to learning tools.
 
 This table is used for storing Rubrics and is intended as a generic course resource store.
 
