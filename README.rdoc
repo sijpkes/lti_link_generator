@@ -1,13 +1,16 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a very brief run-down on how to get started on developing for this project.
 
-Things you may want to cover:
+* check this repo out from git:
+`git clone https://github.com/sijpkes/lti_link_generator.git`
 
 * Ruby version
+ruby 2.3.1p112 (2016-04-26 revision 54768)
 
 * System dependencies
+  -- Rails with mySQL support
+  -- 
 
 * Configuration
 
