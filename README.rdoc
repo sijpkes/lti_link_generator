@@ -89,7 +89,10 @@ Add a writable directory outside of the package and call it:
 
   /system/user/templates
 
-This is the
+This is an alias for the template folder in EE. Unzip the
+{Default Site Template File (default_site.zip)}[https://github.com/sijpkes/lti_link_generator/blob/master/default_site.zip] file
+inside this folder.  This is where the app will be reading and writing template data from.
+Ensure the folder either has ownership by the Ruby process or the files are writable (({chmod 666 yourfile.php}))
 
 === END README
 
