@@ -5,9 +5,9 @@ If you can't get going, {log it as an issue}[https://github.com/sijpkes/lti_link
 
 * check this repo out from git:
 
-=
-  $ git clone https://github.com/sijpkes/lti_link_generator.git
-=
+
+#  $ git clone https://github.com/sijpkes/lti_link_generator.git
+
 
 * Ruby version
 ruby 2.3.1p112 (2016-04-26 revision 54768)
