@@ -5,9 +5,10 @@ If you can't get going, {log it as an issue}[https://github.com/sijpkes/lti_link
 
 * check this repo out from git:
 
-=\begin
+=end
+=begin shell
   $ git clone https://github.com/sijpkes/lti_link_generator.git
-=\end
+=end
 
 * Ruby version
 ruby 2.3.1p112 (2016-04-26 revision 54768)
@@ -25,7 +26,8 @@ For development:
 
 Create the following tables in a fresh mySQL database:
 
-=
+=end
+=begin sql
 
 CREATE TABLE IF NOT EXISTS `exp_lti_course_link_resources` (
   `id` mediumint(5) NOT NULL AUTO_INCREMENT,
@@ -38,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `exp_lti_course_link_resources` (
   KEY `resource_link_id_2` (`resource_link_id`(10))
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT;
 
-=
+=end
 
 * Database initialization
 
