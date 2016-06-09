@@ -77,7 +77,7 @@ where certain plug-ins are turned on and off for instructors.
 
 = END README
 
-Placeholder information here...
+Placeholder information only...
 
 * Configuration
 
