@@ -1,11 +1,15 @@
 $(document).ready(function() {
     $('select#tool').change(function() {
-        var val = $(this).find("option:selected").val();
+        var s = $(this).find("option:selected");
+        var val = s.val();
+        var header = s.text();
         if(val > 0) {
-        //  $('#launch_info').slideDown(500);
-          $('#settings').slideDown(500);
+          $("#tool-header > h2").text(header);
+          $("#tool-header").show(500);
+          $('#settings-row').slideDown(500);
         } else {
-          $('#settings, #template').slideUp(500);
+          $("#tool-header").hide(500);
+          $('#settings-row').slideUp(500);
         }
     });
 
