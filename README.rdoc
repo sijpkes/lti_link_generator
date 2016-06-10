@@ -18,7 +18,7 @@ Rails 4.2.6
 === System dependencies
 * Rails with mySQL support
 * bootstrap-sass gem
-* [TODO] tinyMCE gem for WYSIWYG html editing
+* TODO - tinyMCE gem for WYSIWYG html editing
 
 == For development:
 

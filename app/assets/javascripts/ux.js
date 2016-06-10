@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     $('a#edit_template').click(function(e) {
           e.preventDefault();
-          $('#template').show(500);
+          $('#template_html').show(500);
     });
 
   /*  $('a#edit_settings').click(function(e) {
