@@ -3,6 +3,8 @@
 
 A Web application that generates LTI links to existing learning tools housed in an ExpressionEngine(EE) install. Allows editing of existing templates in EE by the user.  
 
+The product should be a scalable web application that can be extended to add any tools developed for the LTI Module below. This means being able to select any tool from a drop down menu and having custom settings displayed for each tool loaded from the mySQL database.  
+
 For important background info see:
 
 [EE3 LTI Module](https://bitbucket.org/sijpkes/ee3-lti-module)
