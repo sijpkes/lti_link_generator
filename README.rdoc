@@ -140,7 +140,7 @@ This table houses the template groups, this corresponds with the top level folde
   ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 
 
-=== Development Writable Directory
+=== Development Directories
 
 Add a readable directory inside the assets folder and call it:
 
