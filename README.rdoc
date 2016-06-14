@@ -91,6 +91,55 @@ where plug-ins are turned on and off for individual instructors.
       PRIMARY KEY (`course_key`,`institution_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+This table houses templates for ExpressionEngine.
+
+--
+-- Table structure for table `exp_templates`, each entry corresponds to the template files in the templates folder (below).
+--
+
+  CREATE TABLE IF NOT EXISTS `exp_templates` (
+  `template_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `site_id` int(4) unsigned NOT NULL DEFAULT '1',
+  `group_id` int(6) unsigned NOT NULL,
+  `template_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `template_type` varchar(16) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'webpage',
+  `template_data` mediumtext COLLATE utf8_unicode_ci,
+  `template_notes` text COLLATE utf8_unicode_ci,
+  `edit_date` int(10) NOT NULL DEFAULT '0',
+  `last_author_id` int(10) unsigned NOT NULL DEFAULT '0',
+  `cache` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'n',
+  `refresh` int(6) unsigned NOT NULL DEFAULT '0',
+  `no_auth_bounce` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT '',
+  `enable_http_auth` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'n',
+  `allow_php` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'n',
+  `php_parse_location` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'o',
+  `hits` int(10) unsigned NOT NULL DEFAULT '0',
+  `protect_javascript` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'n',
+  PRIMARY KEY (`template_id`),
+  KEY `group_id` (`group_id`),
+  KEY `template_name` (`template_name`),
+  KEY `site_id` (`site_id`)
+  ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+This table houses the template groups, this corresponds with the top level folder in the templates directory below.
+
+  --
+  -- Table structure for table `exp_template_groups`
+  --
+
+  CREATE TABLE IF NOT EXISTS `exp_template_groups` (
+    `group_id` int(6) unsigned NOT NULL AUTO_INCREMENT,
+    `site_id` int(4) unsigned NOT NULL DEFAULT '1',
+    `group_name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+    `group_order` int(3) unsigned NOT NULL,
+    `is_site_default` char(1) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'n',
+    PRIMARY KEY (`group_id`),
+    KEY `site_id` (`site_id`),
+    KEY `group_name_idx` (`group_name`),
+    KEY `group_order_idx` (`group_order`)
+  ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
+
+
 === Development Writable Directory
 
 Add a writable directory outside of the package and call it:
