@@ -33,6 +33,8 @@ Rails 4.2.6
 === Development Database Tables
 Create the following tables in a fresh mySQL database.
 * These tables are used by ExpressionEngine for storing data in relation to learning tools.
+Note that tables here have an 'exp_' prefix, this is arbitrary and these tables will be
+referred to without their prefix for consistency with CodeIgniter database conventions.
 
 This table is used for storing Rubrics and is intended as a generic course resource store.
   --
@@ -71,7 +73,7 @@ This table houses the LTI V1.0 (formerly basic LTI) credentials for different le
     ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 This table houses the settings for the instructor, this is where Peer Assessment settings are saved and also
-where plug-ins are turned on and off for individual instructors.
+where plug-ins are turned on and off for individual instructors.  course_key is concatenation of secret + : + context_id
 
     CREATE TABLE IF NOT EXISTS `exp_lti_instructor_settings` (
       `problem_prefix` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
@@ -90,6 +92,19 @@ where plug-ins are turned on and off for individual instructors.
       `include_self_in_mean_score` tinyint(1) unsigned DEFAULT '0',
       PRIMARY KEY (`course_key`,`institution_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+Course contexts table, you will need to generate a temporary, and unique, course context_id.
+
+      --
+      -- Table structure for table `exp_lti_course_contexts`
+      --
+
+      CREATE TABLE IF NOT EXISTS `exp_lti_course_contexts` (
+      `id` int(11) NOT NULL AUTO_INCREMENT,
+      `institution_id` int(11) NOT NULL,
+      `context_id` char(255) COLLATE utf8_unicode_ci NOT NULL,
+      PRIMARY KEY (`id`)
+      ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 These table houses templates for ExpressionEngine, each entry corresponds to the template files in the templates folder (below)..
 
@@ -138,7 +153,6 @@ This table houses the template groups, this corresponds with the top level folde
     KEY `group_name_idx` (`group_name`),
     KEY `group_order_idx` (`group_order`)
   ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
-
 
 === Development Directories
 
