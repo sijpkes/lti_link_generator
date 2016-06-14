@@ -91,11 +91,11 @@ where plug-ins are turned on and off for individual instructors.
       PRIMARY KEY (`course_key`,`institution_id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-This table houses templates for ExpressionEngine.
+These table houses templates for ExpressionEngine, each entry corresponds to the template files in the templates folder (below)..
 
---
--- Table structure for table `exp_templates`, each entry corresponds to the template files in the templates folder (below).
---
+  --
+  -- Table structure for table `exp_templates`,
+  --
 
   CREATE TABLE IF NOT EXISTS `exp_templates` (
   `template_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
