@@ -159,5 +159,3 @@ inside this folder.  This is where the app will be reading and writing template 
 Ensure the folder either has ownership by the Ruby process or the files are writable using on *nix:
 
   chmod 666 yourfile.php
-
-On windows: ??
