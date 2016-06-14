@@ -142,6 +142,13 @@ This table houses the template groups, this corresponds with the top level folde
 
 === Development Writable Directory
 
+Add a readable directory inside the assets folder and call it:
+
+  assets/default_templates/
+
+This is where the template base files will be housed, read these in for users to edit,
+then generate the final template to the templates folder below and add to the template table above.
+
 Add a writable directory outside of the package and call it:
 
   /system/user/templates
@@ -154,25 +161,3 @@ Ensure the folder either has ownership by the Ruby process or the files are writ
   chmod 666 yourfile.php
 
 On windows: ??
-
-=== END README
-
-Placeholder information only...
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
