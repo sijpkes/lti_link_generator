@@ -7,6 +7,14 @@ If you can't get going, {log it as an issue}[https://github.com/sijpkes/lti_link
 == Cloning the Git Repo
   $ git clone https://github.com/sijpkes/lti_link_generator.git
 
+== Running the Web Server
+Assuming you have ruby and rails installed
+
+  $ cd path_to_folder/lti_link_generator
+  $ bin/rails server
+
+Then access http://localhost:3000 to view the webapp.
+
 === Ruby version
 ruby 2.3.1p112 (2016-04-26 revision 54768)
 {Install Ruby for your System}[https://www.ruby-lang.org/en/documentation/installation/]
