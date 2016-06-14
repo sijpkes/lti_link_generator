@@ -5,7 +5,7 @@ A Web application that generates LTI links to existing learning tools housed in 
 
 The product should be a scalable web application that can be extended to add any tools developed for the LTI Module below. This means being able to select any tool from a drop down menu and having custom settings displayed for each tool loaded from the mySQL database.  
 
-[View this activity diagram]{https://drive.google.com/open?id=0BzkHPzzmmGjJRjNfZ2VCeTlMTG8} for an overview of what is required.
+[View this activity diagram](https://drive.google.com/open?id=0BzkHPzzmmGjJRjNfZ2VCeTlMTG8) for an overview of what is required.
 
 For important background info see:
 
