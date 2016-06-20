@@ -11,6 +11,7 @@ If you can't get going, {log it as an issue}[https://github.com/sijpkes/lti_link
 Assuming you have ruby and rails installed
 
   $ cd path_to_folder/lti_link_generator
+  $ bundle install
   $ bin/rails server
 
 Then access http://localhost:3000 to view the webapp.
