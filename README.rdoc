@@ -185,3 +185,11 @@ inside this folder.  This is where the app will be reading and writing template 
 Ensure the folder either has ownership by the Ruby process or the files are writable using on *nix:
 
   chmod 666 yourfile.php
+
+=== Testing
+
+Unit tests can be run using:
+
+Basic LTI Link Database Insert
+
+   bin/rake test test/models/basic_lti_key_test.rb
