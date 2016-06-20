@@ -188,7 +188,7 @@ Ensure the folder either has ownership by the Ruby process or the files are writ
 
 === Testing
 
-Unit tests can be run using:
+Unit tests available:
 
 Basic LTI Link Database Insert
 
