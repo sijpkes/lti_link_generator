@@ -1,0 +1,15 @@
+# test fixtures for Basci Lti
+
+lti_test1:
+ oauth_consumer_key: 89u3uljdsafjlsadfjljljadsfljlkasdf
+ secret: jdudum1
+ name: lti_test1
+ context_id: jklsadfl8()FDJKLDJFLJLFDLKJLKFDLK
+ url_segment: examples/url_test1
+
+lti_test2:
+ oauth_consumer_key: 9s88=odsaladfslkj11--ksv;ladklf;%
+ secret: <%=oo1fmn
+ name: lti_test2
+ context_id: jklsadfl8()<?= $_GET['n'] ?>jjjj
+ url_segment: testing/url_test2

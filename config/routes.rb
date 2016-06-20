@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :basic_lti_keys
   get 'home/index'
 
   resources :lti_links  # The priority is based upon order of creation: first created -> highest priority.

@@ -1,0 +1,25 @@
+<%= form_for(@basic_lti_key) do |f| %>
+  <% if @basic_lti_key.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@basic_lti_key.errors.count, "error") %> prohibited this basic_lti_key from being saved:</h2>
+
+      <ul>
+      <% @basic_lti_key.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

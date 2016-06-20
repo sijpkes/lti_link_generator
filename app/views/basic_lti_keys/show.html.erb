@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @basic_lti_key.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @basic_lti_key.body %>
+</p>
+
+<%= link_to 'Edit', edit_basic_lti_key_path(@basic_lti_key) %> |
+<%= link_to 'Back', basic_lti_keys_path %>

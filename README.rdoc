@@ -31,6 +31,17 @@ Rails 4.2.6
 
 == For development:
 
+=== Databases
+
+Create three databases: ltigen_dev, ltigen_test and ltigen_prod
+
+After creating the schema below, run:
+
+  rake db:migrate
+  rake db:schema:dump
+
+This will create a schema.db file for you
+
 === Development Database Tables
 Create the following tables in a fresh mySQL database.
 * These tables are used by ExpressionEngine for storing data in relation to learning tools.
@@ -51,7 +62,7 @@ This table is used for storing Rubrics and is intended as a generic course resou
     PRIMARY KEY (`id`),
     KEY `resource_link_id` (`resource_link_id`),
     KEY `resource_link_id_2` (`resource_link_id`(10))
-    ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT;
+    ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 This table houses the LTI V1.0 (formerly basic LTI) credentials for different learning tools.
 {See further documentation on LTI V1.0}[https://www.imsglobal.org/specs/ltiv1p0/implementation-guide]
@@ -153,7 +164,7 @@ This table houses the template groups, this corresponds with the top level folde
     KEY `site_id` (`site_id`),
     KEY `group_name_idx` (`group_name`),
     KEY `group_order_idx` (`group_order`)
-  ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
+  ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 === Development Directories
 
