@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "updated_at",                     null: false
   end
 
+  add_index "exp_blti_keys", ["url_segment"], name: "url_segment", unique: true, using: :btree
+
   create_table "exp_lti_course_contexts", force: :cascade do |t|
     t.integer "institution_id", limit: 4,   null: false
     t.string  "context_id",     limit: 255, null: false

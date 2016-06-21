@@ -5,11 +5,16 @@ class BasicLtiKeyTest < ActiveSupport::TestCase
   fixtures :exp_blti_keys
 
   def test_blti_key
-     blti_key =  BasicLtiKey.new oauth_consumer_key: exp_blti_keys(:lti_test1).oauth_consumer_key,
-                                 secret: exp_blti_keys(:lti_test1).secret,
-                                 name: exp_blti_keys(:lti_test1).name,
-                                 context_id: exp_blti_keys(:lti_test1).context_id,
-                                 url_segment: exp_blti_keys(:lti_test1).url_segment
+      blti_key =  BasicLtiKey.new oauth_consumer_key: "sasoi42jadfojodf",
+                              secret: "&8348903q4",
+                              name: "Test Name",
+                              context_id: "894jkodfgj023049u09refu8r",
+                              url_segment: "test/insert1"
+
+     if ! blti_key.valid?
+        puts "Validation failed"
+        exit
+     end
 
      assert blti_key.save
 
@@ -17,9 +22,19 @@ class BasicLtiKeyTest < ActiveSupport::TestCase
 
      assert_equal blti_key.name, blti_key_copy.name
 
-     blti_key.name = "lti_test1_updated"
+     blti_key.name = blti_key.name+"_updated"
+
+     if ! blti_key.valid?
+        puts "Validation failed"
+        exit
+     end
 
      assert blti_key.save
+
+     assert_not_equal blti_key.name, blti_key_copy.name
+
+     assert blti_key.save
+
      assert blti_key.destroy
   end
 end
