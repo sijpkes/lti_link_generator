@@ -52,9 +52,11 @@ ActiveRecord::Schema.define(version: 0) do
     t.boolean  "show_grade_column",                             default: true
     t.boolean  "show_comments",                                 default: true
     t.boolean  "allow_self_assessment",                         default: false
+    t.boolean  "include_self_in_mean_score",                    default: false
     t.string   "user_access",                limit: 5000
     t.integer  "total_score",                limit: 1,                          null: false
-    t.boolean  "include_self_in_mean_score",                    default: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "exp_template_groups", primary_key: "group_id", force: :cascade do |t|

@@ -25,18 +25,22 @@
 <div class=row id=settings-row style='display:none'>
  <div class="col-md-6" id="settings" style="">
 <h3>Peer Review Settings</h3>
-<label for="show_grade_column1">Show grades column to students? Yes:
-    <input type="radio" name="show_grade_column" id="show_grade_column1" value="yes" checked="checked"></label>
-    <label for="show_grade_column2">
+    <label for="show_grade_column1">Show grades column to students? Yes:<input type="radio" name="show_grade_column" id="show_grade_column1" value="yes" checked="checked"></label>
+    <label for="show_grade_column2">No:<input type="radio" name="show_grade_column" id="show_grade_column2" value="no"></label>
 
-    No:<input type="radio" name="show_grade_column" id="show_grade_column2" value="no"></label>
-    <label for="show_comments1">Show comments to students? Yes: <input type="radio" name="show_comments" id="show_comments1" value="yes" checked="checked"> </label> <label for="show_comments2">No: <input type="radio" name="show_comments" value="no" id="show_comments2"></label>
-             <p> <em>This option sets the first user in the list to the logged in student, all other students are greyed out until the student has
-               self assessed</em></p><p><br>Include self in the mean score calculation from the group?<br>
-Yes:
+    <label for="show_comments1">Show comments to students? Yes: <input type="radio" name="show_comments" id="show_comments1" value="yes" checked="checked"> </label>
+    <label for="show_comments2">No: <input type="radio" name="show_comments" value="no" id="show_comments2"></label>
 
-          <input type="radio" name="include_self_in_mean_score" value="yes"> No: <input type="radio" name="include_self_in_mean_score" value="no" checked="checked"><br></p>
-          <p><em>This option includes the student's self assessment score in the mean calculation from the group score.</em></p><p><br><div id="rubric_wrapper">
+    <label for="allow_self1">Allow students to self-assess? Yes: <input type="radio" name="allow_self" id="allow_self1" value="yes" checked="checked"> </label>
+    <label for="allow_self2">No: <input type="radio" name="allow_self" value="no" id="allow_self2"></label>
+    <p> <em>This option sets the first user in the list to the logged in student, all other students are greyed out until the student has
+      self assessed</em></p><p><br>
+
+    <label for="include_self1">Include self in the mean score calculation from the group? Yes:
+  	<input type="radio" name="include_self" id="include_self1" value="yes" checked="checked"/></label>
+  	<label for="include_self2">No: <input type="radio" name="include_self" value="no" id="include_self2"/></label>
+
+    <br><div id="rubric_wrapper">
 <form action="https://bold-space.newcastle.edu.au/ee3stg/index.php/cmns3530" method="post" accept-charset="utf-8" enctype="multipart/form-data"><label for="userfile">Rubric ZIP file:</label>
 <input type="hidden" name="do_upload_rubric" value="1">
 <input type="file" name="userfile" value="userfile"><label for="show_scores"> show rubric cell scores.</label><input type="submit" value="Upload and Attach Rubric" name="upload_rubric" class="form-control btn-success"></input></form>
@@ -68,8 +72,8 @@ Yes:
  </fieldset>
    <a href="#" id="edit_template" style="float:right">Edit Template HTML</a>
 </div>
-  <div class="row" id=template_html style=display:none>
-     <div class=col-md-12>
+  <div class="row" id='template_html' style='display:none'>
+     <div class='col-md-12'>
        <h2>Edit Template HTML</h2>
        <p><em>This template contains both instructor and student views. In general you wont need to change this template and you can simply change the student headings and description in Settings.</em></p>
 
