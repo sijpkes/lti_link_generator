@@ -8,21 +8,21 @@
 <form>
   <fieldset class=form-group>
    <label for=link_url>Link Url</label>
-   <input type=text class=form-control id=link_url name=link_url value='https://bold-space.newcastle.edu.au/lti/index.php/d5090ba7cb1adc980a5096ddf60d54c3' readonly="1">
+   <input type=text class=form-control id=link_url name=link_url value='https://bold-space.newcastle.edu.au/lti/index.php/<%= @key_set.url_segment %>' readonly="1">
 
    <label for=key>Key</label>
-   <input type=text class=form-control id=key name=key value='&7%g1e' readonly="1">
+   <input type='text' class='form-control' id='key' name='key' value=<%= @key_set.oauth_consumer_key %> readonly="1">
 
    <label for=secret>Secret</label>
-   <input type=text class=form-control id=secret name=secret value=')8yhIr' readonly="1">
+   <input type='text' class='form-control' id='secret' name='secret' value=<%= @key_set.secret %> readonly="1">
 
-   <label for=custom_params>Custom Parameters</label>
-   <textarea class=form-control id=custom_params readonly="1">
+   <label for='custom_params'>Custom Parameters</label>
+   <textarea class='form-control' id='custom_params' readonly="1">
 vle_user_role=@X@user.role@X@
 vle_coursename=@X@course.course_name@X@
 vle_pk_string=@X@course.pk_string@X@
 vle_username=@X@user.id@X@
-linkgen_id=!Ohj1dkfTGj    // generate this as temporary course context_id in previous step
+linkgen_id=<%= @key_set.context_id %>  // generate this as temporary course context_id in previous step
    </textarea>
    <!-- <a href="#" id=edit_settings style="float:right">Edit Settings</a> -->
  </fieldset>
