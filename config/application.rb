@@ -24,5 +24,8 @@ module LtiLinkGenerator
     config.active_record.raise_in_transactional_callbacks = true
 
     config.x.table_prefix = "exp_";
+
+    config.x.default_template_file_path = "app/assets/default_templates/"
+    config.x.final_template_file_path = "../system/user/templates/"
   end
 end
