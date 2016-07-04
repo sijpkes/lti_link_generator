@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160701052201) do
 
   create_table "exp_blti_keys", force: :cascade do |t|
     t.string   "oauth_consumer_key", limit: 255, null: false
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.string   "name",               limit: 255
     t.string   "context_id",         limit: 255
     t.string   "url_segment",        limit: 255
+    t.string   "session_key",        limit: 8
+    t.boolean  "used",               default: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
   end
@@ -55,8 +57,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.boolean  "include_self_in_mean_score",                    default: false
     t.string   "user_access",                limit: 5000
     t.integer  "total_score",                limit: 1,                          null: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
   end
 
   create_table "exp_template_groups", primary_key: "group_id", force: :cascade do |t|
