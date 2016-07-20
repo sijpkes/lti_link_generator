@@ -10,6 +10,7 @@ class LtiLinksController < ApplicationController
 		if (@key_set.used)
 			@error = "That key has already been used, please start"
 		end
+
 		@key_set.used = true
 		@key_set.save
 
