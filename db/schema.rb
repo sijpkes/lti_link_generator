@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20160701052201) do
     t.string   "name",               limit: 255
     t.string   "context_id",         limit: 255
     t.string   "url_segment",        limit: 255
+    t.string   "linkgen_id",         limit: 255
     t.string   "session_key",        limit: 8
     t.boolean  "used",               default: false
     t.datetime "created_at",                     null: false
@@ -89,6 +90,8 @@ ActiveRecord::Schema.define(version: 20160701052201) do
     t.string  "php_parse_location", limit: 1,        default: "o",       null: false
     t.integer "hits",               limit: 4,        default: 0,         null: false
     t.string  "protect_javascript", limit: 1,        default: "n",       null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
   end
 
   add_index "exp_templates", ["group_id"], name: "group_id", using: :btree

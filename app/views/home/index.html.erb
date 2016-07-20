@@ -1,94 +1,92 @@
 <div class="container">
   <form action="/lti_links" method="post">
-<div class="row">
-<div class="span2">
-  <h1>LTI Link Generator</h1>
+    <div class="row">
+      <div class="span2">
+        <h1>LTI Link Generator</h1>
+
+        <fieldset class="form-group">
+         <input name="authenticity_token" value="rPGJeVoyZYioIwb0ZpwwORTMjcG6WIqoDGkq1UQFUgSQCWq0s3QCO8MaLxrDeZaFe+/CQayVJ9iYiMujBS3+Pw==" type="hidden">
+         <label for="tool">Choose the tool you would like to generate a link for</label>
+         <select class="form-control" id="tool">
+          <option value="0">========== None Selected ===========</option>
+          <option value="1" title="Provide a Blackboard link to evaluate student contributions to group work, a simple alternative to SPARC.">Group Work Peer Evaluation</option>
+          <option value="2" title="Deliver problems and solutions securely to students via a Blackboard link">Secure Question/Answer Delivery</option>
+        </select>
+      </fieldset></div>
+
+      <input type='hidden' id='keyset_id' name='keyset_id' value=<%= @keyset.id %>/>
+
+    </div>
+    <div class=row id=tool-header style='display:none'>
+      <h2></h2>
+      <em style='color: purple'>Note for devs: below content are settings for the peer assessment tool, on production these settings will vary based on tool selection</em>
+    </div>
+    <div class=row id=settings-row style='display:none'>
+     <div class="col-md-6" id="settings" style="">
+      <h3>Peer Review Settings</h3>
+      <label for="show_grade_column1">Show grades column to students? Yes:<input type="radio" name="show_grade_column" id="show_grade_column1" value="yes" checked="checked"></label>
+      <label for="show_grade_column2">No:<input type="radio" name="show_grade_column" id="show_grade_column2" value="no"></label>
+
+      <label for="show_comments1">Show comments to students? Yes: <input type="radio" name="show_comments" id="show_comments1" value="yes" checked="checked"> </label>
+      <label for="show_comments2">No: <input type="radio" name="show_comments" value="no" id="show_comments2"></label>
+
+      <label for="allow_self1">Allow students to self-assess? Yes: <input type="radio" name="allow_self" id="allow_self1" value="yes" checked="checked"> </label>
+      <label for="allow_self2">No: <input type="radio" name="allow_self" value="no" id="allow_self2"></label>
+      <p> <em>This option sets the first user in the list to the logged in student, all other students are greyed out until the student has
+        self assessed</em></p><p><br>
+
+        <label for="include_self1">Include self in the mean score calculation from the group? Yes:
+         <input type="radio" name="include_self" id="include_self1" value="yes" checked="checked"/></label>
+         <label for="include_self2">No: <input type="radio" name="include_self" value="no" id="include_self2"/></label>
+
+         <br><div id="rubric_wrapper">
+         <label for="userfile">Rubric ZIP file:</label>
+         <input type="hidden" name="do_upload_rubric" value="1">
+         <input id="rubric_file" type="file" name="userfile" value="userfile"><label for="show_scores"> show rubric cell scores.</label>
+         <input id="upload_rubric" type="button" value="Upload and Attach Rubric" name="upload_rubric" class="form-control btn-success"></input>
+         <!-- AJAX call here -->
+
+       </div>
+       <br><label for="total_score" style="font-weight: 400"><strong>OR</strong> set a total maximum score for assessment</label>
+       <input type="text" name="total_score" value="40" id="total_score" maxlength="4" size="30" style="width:12%">
+       <em id="scoreOverride" style="display: none">(Overriden by rubric total score)</em><br></p>
+
+     </div>
+     <div class="col-md-6" id="template">
+      <h3>Student View Peer Review Headings and Text</h3>
+      <fieldset class="form-group">
+        <label for="group_sub_heading">Group Sub Heading</label><br>
+        <input type="text" id="group_sub_heading" name="group_sub_heading" value="Your Evaluation of Other Group Members"><br>
 
 
-  <fieldset class="form-group">
-     <input name="authenticity_token" value="rPGJeVoyZYioIwb0ZpwwORTMjcG6WIqoDGkq1UQFUgSQCWq0s3QCO8MaLxrDeZaFe+/CQayVJ9iYiMujBS3+Pw==" type="hidden">
-    <label for="tool">Choose the tool you would like to generate a link for</label>
-    <select class="form-control" id="tool">
-      <option value="0">========== None Selected ===========</option>
-      <option value="1" title="Provide a Blackboard link to evaluate student contributions to group work, a simple alternative to SPARC.">Group Work Peer Evaluation</option>
-      <option value="2" title="Deliver problems and solutions securely to students via a Blackboard link">Secure Question/Answer Delivery</option>
-    </select>
-  </fieldset></div>
+        <label for="evaluation_form_heading">Evaluation Form Sub Heading</label><br>
+        <input type="text" id="evaluation_form_heading" name="evaluation_form_heading" value="Evaluation Form"><br>
 
-  <input type='hidden' id='keyset_id' name='keyset_id' value=<%= @keyset.id %>/>
-
- </div>
- <div class=row id=tool-header style='display:none'>
-    <h2></h2>
-    <em style='color: purple'>Note for devs: below content are settings for the peer assessment tool, on production these settings will vary based on tool selection</em>
- </div>
-<div class=row id=settings-row style='display:none'>
- <div class="col-md-6" id="settings" style="">
-<h3>Peer Review Settings</h3>
-    <label for="show_grade_column1">Show grades column to students? Yes:<input type="radio" name="show_grade_column" id="show_grade_column1" value="yes" checked="checked"></label>
-    <label for="show_grade_column2">No:<input type="radio" name="show_grade_column" id="show_grade_column2" value="no"></label>
-
-    <label for="show_comments1">Show comments to students? Yes: <input type="radio" name="show_comments" id="show_comments1" value="yes" checked="checked"> </label>
-    <label for="show_comments2">No: <input type="radio" name="show_comments" value="no" id="show_comments2"></label>
-
-    <label for="allow_self1">Allow students to self-assess? Yes: <input type="radio" name="allow_self" id="allow_self1" value="yes" checked="checked"> </label>
-    <label for="allow_self2">No: <input type="radio" name="allow_self" value="no" id="allow_self2"></label>
-    <p> <em>This option sets the first user in the list to the logged in student, all other students are greyed out until the student has
-      self assessed</em></p><p><br>
-
-    <label for="include_self1">Include self in the mean score calculation from the group? Yes:
-  	<input type="radio" name="include_self" id="include_self1" value="yes" checked="checked"/></label>
-  	<label for="include_self2">No: <input type="radio" name="include_self" value="no" id="include_self2"/></label>
-
-    <br><div id="rubric_wrapper">
-<form action="https://bold-space.newcastle.edu.au/ee3stg/index.php/cmns3530" method="post" accept-charset="utf-8" enctype="multipart/form-data"><label for="userfile">Rubric ZIP file:</label>
-<input type="hidden" name="do_upload_rubric" value="1">
-<input type="file" name="userfile" value="userfile"><label for="show_scores"> show rubric cell scores.</label><input type="submit" value="Upload and Attach Rubric" name="upload_rubric" class="form-control btn-success"></input></form>
-  <!-- AJAX call here -->
-
-
-
-
-</div>
-<br><label for="total_score" style="font-weight: 400"><strong>OR</strong> set a total maximum score for assessment</label><input type="text" name="total_score" value="40" id="total_score" maxlength="4" size="30" style="width:12%" disabled="">
-          <input type="hidden" name="total_score" value="40"><em id="scoreOverride" style="display: none">(Overriden by rubric total score)</em><br></p>
-
- </div>
- <div class="col-md-6" id="template">
-<h3>Student View Peer Review Headings and Text</h3>
-  <fieldset class="form-group">
-  <label for="group_sub_heading">Group Sub Heading</label><br>
-  <input type="text" id="group_sub_heading" name="group_sub_heading" value="Your Evaluation of Other Group Members"><br>
-
-
-  <label for="evaluation_form_heading">Evaluation Form Sub Heading</label><br>
-  <input type="text" id="evaluation_form_heading" name="evaluation_form_heading" value="Evaluation Form"><br>
-
-   <label for="marking_instructions">Marking Instructions Text</label><br>
-   <%= text_area_tag :content, @marking_instructions_text, :class => "tinymce", :rows => 5, :cols => 20 %>
+        <label for="marking_instructions">Marking Instructions Text</label><br>
+        <%= text_area_tag :marking_instructions, @marking_instructions_text, :class => "tinymce", :rows => 5, :cols => 20 %>
 
 
 
- </fieldset>
-   <a href="#" id="edit_template" style="float:right">Edit Template HTML</a>
-</div>
-  <div class="row" id='template_html' style='display:none'>
+      </fieldset>
+      <a href="#" id="edit_template" style="float:right">Edit Template HTML</a>
+    </div>
+    <div class="row" id='template_html' style='display:none'>
      <div class='col-md-12'>
        <h2>Edit Template HTML</h2>
        <p><em>This template contains both instructor and student views. In general you wont need to change this template and you can simply change the student headings and description in Settings.</em></p>
 
-   <%= text_area_tag :content, @sample_template, :class => "tinymce" %>
+       <%= text_area_tag :html_template, @sample_template, :class => "tinymce" %>
 
-    <!-- textarea class="form-control" name="marking_instructions" id="marking_instructions" -->
-      <!-- </textarea> -->
+       <!-- textarea class="form-control" name="marking_instructions" id="marking_instructions" -->
+       <!-- </textarea> -->
 
+     </div>
+   </div>
+   <div class="row">
+    <div class="span8">
+      <input class="form-control btn-warning" type="submit" value="Generate" name="generate">
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="span8">
-    <input class="form-control btn-warning" type="submit" value="Generate" name="generate">
-  </div>
-</div>
 </div>
 </form>
 </div>
@@ -101,5 +99,20 @@ $(document).on('focusin', function(e) {
   if ($(e.target).closest(".mce-window").length) {
     e.stopImmediatePropagation();
   }
+});
+
+$('#upload_rubric').click(function() {
+  $.ajax({ // create an AJAX call
+    data: {do_upload_rubric: 1},
+    type: 'POST',
+    url: "<%= Rails.configuration.x.rubric_upload_url %>",
+      success: function(response) { // on success..
+        alert("Rubric successfully uploaded!");
+        var score = JSON.parse(response).score;
+        $('#total_score').val(score); // update the DIV
+        $('#total_score').prop("disabled", true);
+        $('#scoreOverride').show();
+      }
+    });
 });
 </script>

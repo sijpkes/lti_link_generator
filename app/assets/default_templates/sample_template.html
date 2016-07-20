@@ -98,8 +98,8 @@
                     </li>
                     <li style="list-style: none">{if:else}
                         <h1>{exp:lti_peer_assessment:group_name}</h1>
-                        <h2>Your Evaluations of Other Group Members</h2>
-                        <h3>Evaluation Form</h3>
+                        <h2>{group_sub_heading}</h2>
+                        <h3>{evaluation_form_heading}</h3>
                         <p style='font-size: 1.5em'><a href='https://bold-space.newcastle.edu.au/lti/index.php/cmns3530/marking_impact'>Access this link for the Marking Impact document</a></p><br>
                         {exp:lti_peer_assessment:form type='single'}
                         {/if}
