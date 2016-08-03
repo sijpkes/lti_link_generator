@@ -19,7 +19,7 @@ class HomeController < ApplicationController
         	@keyset.name = "Name Field"
         	@keyset.linkgen_id = generate_random_key(12)
         	@keyset.url_segment = generate_random_key(32)
-            @keyset.session_key = session[:lti_session_key]
+          @keyset.session_key = session[:lti_session_key]
         end while !@keyset.valid?
         @keyset.save
     end
