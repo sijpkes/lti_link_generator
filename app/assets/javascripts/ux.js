@@ -65,25 +65,36 @@ $(document).ready(function() {
       }
     });
 
-    $('#rubric_file').change(function () {
-        //var fd = );
-         var fd = new FormData();
+    var triggerSend = function() {
+      var rubfile = $("#rubric_file")[0];
+      if(rubfile.files !== null) {
+        var fd = new FormData();
+        fileSize = rubfile.files[0].size;
 
-         fileSize = this.files[0].size;
+        fd.append('rubric_file', rubfile.files[0]);
+        fd.append('do_upload_rubric', 1);
+        fd.append('linkgen_id', home.linkgen_id);
+        fd.append('resource_link_id', '_linkgen_temp_');
+        fd.append('institution_id', '1');
+        fd.append('show_scores', $("#show_scores").is(':checked') ? 1 : 0);
+        //fd.append("file_1", file_data);
 
-         fd.append('rubric_file', this.files[0]);
-         fd.append('do_upload_rubric', 1);
-         fd.append('linkgen_id', home.linkgen_id);
-         fd.append('resource_link_id', '_linkgen_temp_');
-         fd.append('institution_id', '1');
-         //fd.append("file_1", file_data);
+        /*var other_data = $('#rubric_wrapper input').serializeArray();
+        $.each(other_data,function(key,input){
+            fd.append(input.name,input.value);
+        });*/
 
-         /*var other_data = $('#rubric_wrapper input').serializeArray();
-         $.each(other_data,function(key,input){
-             fd.append(input.name,input.value);
-         });*/
+        sendFile(fd);
+      }
+    };
 
-         sendFile(fd);
+    $('#show_scores').click(function () {
+        triggerSend();
     });
+
+    $('#rubric_file').change(function() {
+        triggerSend();
+    });
+
 
 });
