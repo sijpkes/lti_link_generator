@@ -6,7 +6,7 @@ class LtiLinksController < ApplicationController
 		if (key_id <= 0 || (@key_set = BasicLtiKey.find(key_id)) == nil)
 			redirect_to "/"
 		end
-		
+
 		if (@key_set.used)
 			@error = "That key has already been used, please start"
 		end
@@ -21,6 +21,7 @@ class LtiLinksController < ApplicationController
 		group.save
 
 		folder_path = Rails.configuration.x.final_template_file_path + @key_set.url_segment + ".group"
+		puts folder_path.inspect
 		Dir.mkdir(folder_path) unless Dir.exist?(folder_path)
 
 		index = params[:html_template]

@@ -27,5 +27,8 @@ module LtiLinkGenerator
 
     config.x.default_template_file_path = "app/assets/default_templates/"
     config.x.final_template_file_path = "../system/user/templates/"
+
+    config.x.group_sub_heading = "{group_sub_heading}"
+    config.x.evaluation_form_heading = "{evaluation_form_heading}"
   end
 end
