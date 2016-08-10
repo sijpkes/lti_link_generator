@@ -24,7 +24,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sdoc', '~> 0.4.0', :group => :doc
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
 #TODO add tinyMCE for rails
@@ -42,7 +42,7 @@ gem 'tinymce-rails'
 
 #Required when deploying on a Windows machine
 #Includes tools to access timezone data on Windows
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw]
+gem 'tzinfo-data', :platforms => [:mingw, :mswin, :x64_mingw]
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
