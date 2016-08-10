@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :basic_lti_keys
   get 'home/index'
 
   resources :lti_links  # The priority is based upon order of creation: first created -> highest priority.
@@ -7,9 +6,6 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-
-  # Example of regular route:
-  get 'basic_lti_keys/' => 'basic_lti_keys#index'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
