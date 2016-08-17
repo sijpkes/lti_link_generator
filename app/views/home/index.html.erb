@@ -1,4 +1,10 @@
 <div class="container">
+  <script>
+    home = { progressImage: '<%= image_tag "processing-file.gif" %>',
+             rubricUpoadUrl:  '<%= Rails.configuration.x.rubric_upload_url %>',
+              linkgen_id: '<%= @keyset.linkgen_id %>'
+            };
+  </script>
   <form action="/lti_links" method="post">
     <div class="row">
       <div class="span2">
@@ -40,11 +46,11 @@
          <label for="include_self2">No: <input type="radio" name="include_self" value="no" id="include_self2"/></label>
 
          <br><div id="rubric_wrapper">
-         <label for="userfile">Rubric ZIP file:</label>
-         <input type="hidden" name="do_upload_rubric" value="1">
-         <input id="rubric_file" type="file" name="userfile" value="userfile"><label for="show_scores"> show rubric cell scores.</label>
-         <input id="upload_rubric" type="button" value="Upload and Attach Rubric" name="upload_rubric" class="form-control btn-success"></input>
-         <!-- AJAX call here -->
+         <label for="userfile">Rubric ZIP file  <div id='rubricProgress'></div></label>
+         <input id="rubric_file" type="file" name="userfile" value="userfile">
+         <label for="show_scores"> show rubric cell scores.</label>
+         <input id="show_scores" type='checkbox' name='show_scores' value='1'/>
+
 
        </div>
        <br><label for="total_score" style="font-weight: 400"><strong>OR</strong> set a total maximum score for assessment</label>
@@ -92,27 +98,3 @@
 </div>
 <%= tinymce :theme => 'modern', :skin => 'light', :plugins => ["wordcount", "paste", "code", "image"] %>
 <!-- tinymce :theme => 'simple', :language => "en-au", :plugins => ["advlist autolink lists link image charmap print preview anchor", "searchreplace visualblocks code fullscreen", "insertdatetime media table contextmenu paste"] -->
-<script type=text/javascript>
-
-// Prevent Bootstrap dialog from blocking focusin
-$(document).on('focusin', function(e) {
-  if ($(e.target).closest(".mce-window").length) {
-    e.stopImmediatePropagation();
-  }
-});
-
-$('#upload_rubric').click(function() {
-  $.ajax({ // create an AJAX call
-    data: {do_upload_rubric: 1},
-    type: 'POST',
-    url: "<%= Rails.configuration.x.rubric_upload_url %>",
-      success: function(response) { // on success..
-        alert("Rubric successfully uploaded!");
-        var score = JSON.parse(response).score;
-        $('#total_score').val(score); // update the DIV
-        $('#total_score').prop("disabled", true);
-        $('#scoreOverride').show();
-      }
-    });
-});
-</script>
