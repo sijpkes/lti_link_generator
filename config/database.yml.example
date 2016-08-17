@@ -15,10 +15,10 @@ default: &default
   pool: 5
   username: root
 #Redhat dev
-  #password: vagrant
+  password: vagrant
 
 # Dodd's Windows  
-  password: XamarinPassword!2
+#  password: XamarinPassword!2
 # socket: /tmp/mysql.sock
 
 #Redhat socket
