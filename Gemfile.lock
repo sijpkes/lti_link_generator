@@ -83,8 +83,12 @@ GEM
     minitest (5.9.0)
     multi_json (1.12.1)
     mysql2 (0.4.4)
+    mysql2 (0.4.4-x86-mingw32)
     nio4r (1.2.1)
     nokogiri (1.6.8)
+      mini_portile2 (~> 2.1.0)
+      pkg-config (~> 1.1.7)
+    nokogiri (1.6.8-x86-mingw32)
       mini_portile2 (~> 2.1.0)
       pkg-config (~> 1.1.7)
     pkg-config (1.1.7)
@@ -149,6 +153,8 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    tzinfo-data (1.2016.6)
+      tzinfo (>= 1.0.0)
     uglifier (3.0.1)
       execjs (>= 0.3.0, < 3)
     web-console (2.3.0)
@@ -162,6 +168,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.6)

@@ -25,9 +25,11 @@ module LtiLinkGenerator
 
     config.x.table_prefix = "exp_";
 
+    #Relative paths to input and output template file locations
     config.x.default_template_file_path = "app/assets/default_templates/"
     config.x.final_template_file_path = "../system/user/templates/"
 
+    #The placeholder in default template that is replaced with user input.
     config.x.group_sub_heading = "{group_sub_heading}"
     config.x.evaluation_form_heading = "{evaluation_form_heading}"
   end

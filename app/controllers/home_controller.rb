@@ -14,6 +14,9 @@ class HomeController < ApplicationController
 
     #Find any existing unused keyset with the current session ID
     @keyset = BasicLtiKey.find_by(session_key: session[:lti_session_key], used: false)
+    if (@keyset != nil)
+        puts @keyset.used
+    end
     #If there is no unused keyset then create a new one
     if (@keyset == nil)
         @keyset = BasicLtiKey.new
@@ -24,7 +27,7 @@ class HomeController < ApplicationController
         	@keyset.name = "Name Field"
         	@keyset.linkgen_id = generate_random_key(12)
         	@keyset.url_segment = generate_random_key(32)
-          @keyset.session_key = session[:lti_session_key]
+            @keyset.session_key = session[:lti_session_key]
         end while !@keyset.valid?
         @keyset.save #Write the new keyset to the database
     end
