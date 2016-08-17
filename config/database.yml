@@ -16,12 +16,9 @@ default: &default
   username: root
 #Redhat dev
   password: vagrant
-<<<<<<< HEAD
         
 # Dodd's Windows  
 # password: XamarinPassword!2
-=======
->>>>>>> b71b82dc61b299936eb63fba55ab1a00486ab7e3
 # socket: /tmp/mysql.sock
 
 #Redhat socket
