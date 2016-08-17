@@ -14,8 +14,15 @@ default: &default
   encoding: utf8
   pool: 5
   username: root
-  password: XamarinPassword!2
-  socket: /tmp/mysql.sock
+#Redhat dev
+  password: vagrant
+        
+# Dodd's Windows  
+# password: XamarinPassword!2
+# socket: /tmp/mysql.sock
+
+#Redhat socket
+  socket: /var/lib/mysql/mysql.sock
 
 development:
   <<: *default
@@ -49,6 +56,6 @@ test:
 #
 production:
   <<: *default
-  database: ltigen_prod
-  username: ltigen
+ # database: ltigen_prod
+ # username: ltigen
   password: <%= ENV['LTI_LINK_GENERATOR_DATABASE_PASSWORD'] %>
