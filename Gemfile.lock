@@ -166,10 +166,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.3.6)
   byebug
-<<<<<<< HEAD
-=======
   coffee-rails
->>>>>>> b71b82dc61b299936eb63fba55ab1a00486ab7e3
   execjs
   jbuilder (~> 2.0)
   jquery-rails

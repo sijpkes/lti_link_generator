@@ -24,11 +24,11 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
-<<<<<<< HEAD
-gem 'sdoc', '~> 0.4.0', group: :doc
-=======
+#<<<<<<< HEAD
+#gem 'sdoc', '~> 0.4.0', group: :doc
+#=======
 gem 'sdoc', '~> 0.4.0', :group => :doc
->>>>>>> b71b82dc61b299936eb63fba55ab1a00486ab7e3
+#>>>>>>> b71b82dc61b299936eb63fba55ab1a00486ab7e3
 gem 'execjs'
 gem 'therubyracer', :platforms => :ruby
 #TODO add tinyMCE for rails
